@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "vosmerka",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-01",
+  "assets": { "directory": "./public", "binding": "ASSETS" },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "vosmerka-db", "database_id": "62fa6b2d-27ae-4f6a-8356-429bfaaa9467" }
+  ],
+  "durable_objects": {
+    "bindings": [
+      { "name": "LOBBY", "class_name": "Lobby" },
+      { "name": "MATCH", "class_name": "MatchRoom" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["Lobby", "MatchRoom"] }
+  ],
+  "vars": {
+    "BOT_USERNAME": "Pool8game_bot",
+    "APP_NAME": "play",
+    "SERVER_PHYSICS": "0"
+  }
+}

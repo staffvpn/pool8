@@ -1,0 +1,26 @@
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL,
+  username TEXT,
+  photo_url TEXT,
+  games INTEGER NOT NULL DEFAULT 0,
+  wins INTEGER NOT NULL DEFAULT 0,
+  created_at INTEGER NOT NULL,
+  last_seen INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS friends (
+  a INTEGER NOT NULL,
+  b INTEGER NOT NULL,
+  created_at INTEGER NOT NULL,
+  PRIMARY KEY (a, b)
+);
+CREATE TABLE IF NOT EXISTS matches (
+  id TEXT PRIMARY KEY,
+  p0 INTEGER NOT NULL,
+  p1 INTEGER NOT NULL,
+  winner INTEGER,
+  created_at INTEGER NOT NULL,
+  finished_at INTEGER
+);
+CREATE INDEX IF NOT EXISTS matches_p0 ON matches (p0);
+CREATE INDEX IF NOT EXISTS matches_p1 ON matches (p1);
